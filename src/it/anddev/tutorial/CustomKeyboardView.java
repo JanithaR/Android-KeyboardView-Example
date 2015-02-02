@@ -33,7 +33,7 @@ public class CustomKeyboardView extends KeyboardView {
 
 			@Override
 			public void onAnimationStart(Animation animation) {
-				// TODO Auto-generated method stub
+				setVisibility(View.VISIBLE);
 
 			}
 
@@ -45,7 +45,30 @@ public class CustomKeyboardView extends KeyboardView {
 
 			@Override
 			public void onAnimationEnd(Animation animation) {
-				setVisibility(View.VISIBLE);
+			}
+		});
+		
+		setAnimation(animation);
+	}
+	
+	public void hideWithAnimation(Animation animation) {
+		animation.setAnimationListener(new AnimationListener() {
+			
+			@Override
+			public void onAnimationStart(Animation animation) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onAnimationRepeat(Animation animation) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onAnimationEnd(Animation animation) {
+					setVisibility(View.GONE);
 			}
 		});
 		

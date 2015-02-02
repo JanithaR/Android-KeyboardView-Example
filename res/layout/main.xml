@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- Copyright (C) 2011 - Riccardo Ciovati
+<!--
+     Copyright (C) 2011 - Riccardo Ciovati
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,26 +15,47 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-	
-	
-<!-- In questo layout è stato utilizzato un contenitore RelativeLayout per 
+
+
+<!--
+     In questo layout è stato utilizzato un contenitore RelativeLayout per 
 	fare in modo che la nostra tastiera rimanga ancorata nella parte inferiore 
-	della schermata, proprio come la tastiera originale di android -->
-<RelativeLayout android:id="@+id/LinearLayout1"
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:orientation="vertical" android:layout_width="fill_parent"
-	android:layout_height="fill_parent">
+	della schermata, proprio come la tastiera originale di android
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    
+    <EditText
+        android:id="@+id/target"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
 
-	<LinearLayout android:layout_width="fill_parent"
-		android:id="@+id/container" android:layout_alignParentTop="true"
-		android:layout_height="fill_parent" android:layout_above="@+id/keyboard_view">
-		<EditText android:layout_width="fill_parent" android:id="@+id/target"
-			android:layout_height="wrap_content" />
-	</LinearLayout>
+    <ToggleButton
+        android:id="@+id/toggleButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOff="Show"
+        android:textOn="Hide"
+        android:layout_below="@id/target" />
+    
+    <TextView android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="The target text" />
 
-	<it.anddev.tutorial.CustomKeyboardView
-		android:id="@+id/keyboard_view" android:visibility="gone"
-		android:layout_width="fill_parent" android:layout_height="wrap_content"
-		android:layout_alignParentBottom="true"></it.anddev.tutorial.CustomKeyboardView>
+    <it.anddev.tutorial.CustomKeyboardView
+        android:id="@+id/keyboard_view"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone"
+        android:keyBackground="@android:drawable/btn_default_small" >
+    </it.anddev.tutorial.CustomKeyboardView>
+
+    
 
 </RelativeLayout>

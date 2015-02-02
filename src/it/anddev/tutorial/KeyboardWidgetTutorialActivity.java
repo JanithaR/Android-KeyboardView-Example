@@ -16,40 +16,57 @@
 package it.anddev.tutorial;
 
 import android.app.Activity;
+import android.content.Context;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.ActionMode;
+import android.view.ActionMode.Callback;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.View.OnFocusChangeListener;
+import android.view.WindowManager;
+import android.view.WindowManager.LayoutParams;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.TranslateAnimation;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ToggleButton;
 
 public class KeyboardWidgetTutorialActivity extends Activity {
 
 	private CustomKeyboardView mKeyboardView;
-	private View mTargetView;
+	private EditText mTargetView;
 	private Keyboard mKeyboard;
+	private ToggleButton mToggleButton;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.main);
-		mKeyboard = new Keyboard(this, R.xml.keyboard);
+		mKeyboard = new Keyboard(this, R.xml.keyboard_alphabet_capital);
 		mTargetView = (EditText) findViewById(R.id.target);
-		mTargetView.setOnTouchListener(new View.OnTouchListener() {
-
+		mTargetView.setOnClickListener(new OnClickListener() {
+			
 			@Override
-			public boolean onTouch(View v, MotionEvent event) {
-				// Dobbiamo intercettare l'evento onTouch in modo da aprire la
-				// nostra tastiera e prevenire che venga aperta quella di
-				// Android
-				showKeyboardWithAnimation();
-				return true;
+			public void onClick(View v) {
+				final InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+				
+				if (mToggleButton.isChecked()) {
+					imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.RESULT_UNCHANGED_SHOWN);
+					showKeyboardWithAnimation();
+				} else {
+					imm.showSoftInput(mTargetView, InputMethodManager.SHOW_IMPLICIT);
+					hideKeyboardWithAnimation();
+				}
 			}
 		});
 
@@ -58,17 +75,78 @@ public class KeyboardWidgetTutorialActivity extends Activity {
 		mKeyboardView
 				.setOnKeyboardActionListener(new BasicOnKeyboardActionListener(
 						this));
+		
+		mToggleButton = (ToggleButton) findViewById(R.id.toggleButton);
+		mToggleButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				final InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+				
+				if (mToggleButton.getText().toString().equals("Show")) {
+					imm.showSoftInput(mTargetView, InputMethodManager.SHOW_IMPLICIT);
+					hideKeyboardWithAnimation();
+				} else {
+					imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.RESULT_UNCHANGED_SHOWN);
+					showKeyboardWithAnimation();
+				}
+				
+//				mToggleButton.toggle();
+			}
+		});
+		
+		mTargetView.setCustomSelectionActionModeCallback(new Callback() {
+			
+			@Override
+			public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+				return false;
+			}
+			
+			@Override
+			public void onDestroyActionMode(ActionMode mode) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+				// TODO Auto-generated method stub
+				return false;
+			}
+			
+			@Override
+			public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+				// TODO Auto-generated method stub
+				return false;
+			}
+		});
 	}
+	
+	private boolean _customShown;
 
 	/***
 	 * Mostra la tastiera a schermo con una animazione di slide dal basso
 	 */
 	private void showKeyboardWithAnimation() {
-		if (mKeyboardView.getVisibility() == View.GONE) {
+//		if (mKeyboardView.getVisibility() == View.GONE) {
 			Animation animation = AnimationUtils
 					.loadAnimation(KeyboardWidgetTutorialActivity.this,
 							R.anim.slide_in_bottom);
 			mKeyboardView.showWithAnimation(animation);
-		}
+			
+			_customShown = true;
+//		}
 	}
+	
+	private void hideKeyboardWithAnimation() {
+//		if (mKeyboardView.getVisibility() == View.GONE) {
+		Animation animation = AnimationUtils
+				.loadAnimation(KeyboardWidgetTutorialActivity.this,
+						R.anim.slide_out_bottom);
+		mKeyboardView.hideWithAnimation(animation);
+		
+		_customShown = false;
+//		}
+	}
+	
 }
