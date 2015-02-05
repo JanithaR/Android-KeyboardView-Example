@@ -18,7 +18,11 @@ package it.anddev.tutorial;
 
 import android.app.Activity;
 import android.inputmethodservice.KeyboardView.OnKeyboardActionListener;
+import android.text.Editable;
+import android.util.Log;
 import android.view.KeyEvent;
+import android.view.View;
+import android.widget.EditText;
 
 /***
  * Listener da associare ad un oggetto KeyboardView in modo tale che quando
@@ -27,7 +31,7 @@ import android.view.KeyEvent;
  */
 public class BasicOnKeyboardActionListener implements OnKeyboardActionListener {
 
-	private Activity mTargetActivity;
+	private KeyboardWidgetTutorialActivity mTargetActivity;
 
 	/***
 	 * 
@@ -35,7 +39,7 @@ public class BasicOnKeyboardActionListener implements OnKeyboardActionListener {
 	 *            Activity a cui deve essere girato l'evento
 	 *            "pressione di un tasto sulla tastiera"
 	 */
-	public BasicOnKeyboardActionListener(Activity targetActivity) {
+	public BasicOnKeyboardActionListener(KeyboardWidgetTutorialActivity targetActivity) {
 		mTargetActivity = targetActivity;
 	}
 
@@ -83,11 +87,29 @@ public class BasicOnKeyboardActionListener implements OnKeyboardActionListener {
 
 	@Override
 	public void onKey(int primaryCode, int[] keyCodes) {
-		long eventTime = System.currentTimeMillis();
-		KeyEvent event = new KeyEvent(eventTime, eventTime,
-				KeyEvent.ACTION_DOWN, primaryCode, 0, 0, 0, 0,
-				KeyEvent.FLAG_SOFT_KEYBOARD | KeyEvent.FLAG_KEEP_TOUCH_MODE);
-
-		mTargetActivity.dispatchKeyEvent(event);
+		Log.d("XXX", "" + primaryCode);
+		
+		View focusCurrent = mTargetActivity.getWindow().getCurrentFocus();
+	    if( focusCurrent==null || focusCurrent.getClass()!=EditText.class ) return;
+	    EditText edittext = (EditText) focusCurrent;
+	    Editable editable = edittext.getText();
+	    int start = edittext.getSelectionStart();
+	    
+//		long eventTime = System.currentTimeMillis();
+//		KeyEvent event = new KeyEvent(eventTime, eventTime,
+//				KeyEvent.ACTION_DOWN, primaryCode, 0, 0, 0, 0,
+//				KeyEvent.FLAG_SOFT_KEYBOARD | KeyEvent.FLAG_KEEP_TOUCH_MODE);
+//
+//		mTargetActivity.dispatchKeyEvent(event);
+	    
+	    if (primaryCode == 50001) {
+	    	if( editable!=null && start>0 ) editable.delete(start - 1, start);
+		} else if (primaryCode == -1) {
+			mTargetActivity.shiftKeyboard();
+		} else if (primaryCode == 50002) {
+			mTargetActivity.toggleKeyborad();
+		} else {
+			editable.insert(start, Character.toString((char) primaryCode));
+		}
 	}
 }

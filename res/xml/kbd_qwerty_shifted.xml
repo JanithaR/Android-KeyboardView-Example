@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+**
+** Copyright 2008, The Android Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
+    android:keyHeight="@dimen/password_keyboard_key_height_alpha"
+    android:keyWidth="10%p"
+    android:verticalGap="@dimen/password_keyboard_verticalGap" >
+
+    <Row android:rowEdgeFlags="top" >
+        <Key
+            android:codes="81"
+            android:iconPreview="@drawable/caps_q"
+            android:keyEdgeFlags="left"
+            android:keyIcon="@drawable/caps_q" />
+        <Key
+            android:codes="87"
+            android:iconPreview="@drawable/caps_w"
+            android:keyIcon="@drawable/caps_w" />
+        <Key
+            android:codes="69"
+            android:iconPreview="@drawable/caps_e"
+            android:keyIcon="@drawable/caps_e" />
+        <Key
+            android:codes="82"
+            android:iconPreview="@drawable/caps_r"
+            android:keyIcon="@drawable/caps_r" />
+        <Key
+            android:codes="84"
+            android:iconPreview="@drawable/caps_t"
+            android:keyIcon="@drawable/caps_t" />
+        <Key
+            android:codes="89"
+            android:iconPreview="@drawable/caps_y"
+            android:keyIcon="@drawable/caps_y" />
+        <Key
+            android:codes="85"
+            android:iconPreview="@drawable/caps_u"
+            android:keyIcon="@drawable/caps_u" />
+        <Key
+            android:codes="73"
+            android:iconPreview="@drawable/caps_i"
+            android:keyIcon="@drawable/caps_i" />
+        <Key
+            android:codes="79"
+            android:iconPreview="@drawable/caps_o"
+            android:keyIcon="@drawable/caps_o" />
+        <Key
+            android:codes="80"
+            android:iconPreview="@drawable/caps_p"
+            android:keyEdgeFlags="right"
+            android:keyIcon="@drawable/caps_p" />
+    </Row>
+    <Row>
+        <Key
+            android:codes="65"
+            android:horizontalGap="5%p"
+            android:iconPreview="@drawable/caps_a"
+            android:keyEdgeFlags="left"
+            android:keyIcon="@drawable/caps_a" />
+        <Key
+            android:codes="83"
+            android:iconPreview="@drawable/caps_s"
+            android:keyIcon="@drawable/caps_s" />
+        <Key
+            android:codes="68"
+            android:iconPreview="@drawable/caps_d"
+            android:keyIcon="@drawable/caps_d" />
+        <Key
+            android:codes="70"
+            android:iconPreview="@drawable/caps_f"
+            android:keyIcon="@drawable/caps_f" />
+        <Key
+            android:codes="71"
+            android:iconPreview="@drawable/caps_g"
+            android:keyIcon="@drawable/caps_g" />
+        <Key
+            android:codes="72"
+            android:iconPreview="@drawable/caps_h"
+            android:keyIcon="@drawable/caps_h" />
+        <Key
+            android:codes="74"
+            android:iconPreview="@drawable/caps_j"
+            android:keyIcon="@drawable/caps_j" />
+        <Key
+            android:codes="75"
+            android:iconPreview="@drawable/caps_k"
+            android:keyIcon="@drawable/caps_k" />
+        <Key
+            android:codes="76"
+            android:iconPreview="@drawable/caps_l"
+            android:keyEdgeFlags="right"
+            android:keyIcon="@drawable/caps_l" />
+    </Row>
+    <Row>
+        <Key
+            android:codes="-1"
+            android:iconPreview="@drawable/sym_keyboard_feedback_shift"
+            android:isModifier="true"
+            android:isSticky="true"
+            android:keyEdgeFlags="left"
+            android:keyIcon="@drawable/sym_keyboard_shift"
+            android:keyWidth="15%p" />
+        <Key
+            android:codes="90"
+            android:iconPreview="@drawable/caps_z"
+            android:keyIcon="@drawable/caps_z" />
+        <Key
+            android:codes="88"
+            android:iconPreview="@drawable/caps_x"
+            android:keyIcon="@drawable/caps_x" />
+        <Key
+            android:codes="67"
+            android:iconPreview="@drawable/caps_c"
+            android:keyIcon="@drawable/caps_c" />
+        <Key
+            android:codes="86"
+            android:iconPreview="@drawable/caps_v"
+            android:keyIcon="@drawable/caps_v" />
+        <Key
+            android:codes="66"
+            android:iconPreview="@drawable/caps_b"
+            android:keyIcon="@drawable/caps_b" />
+        <Key
+            android:codes="78"
+            android:iconPreview="@drawable/caps_n"
+            android:keyIcon="@drawable/caps_n" />
+        <Key
+            android:codes="77"
+            android:iconPreview="@drawable/caps_m"
+            android:keyIcon="@drawable/caps_m" />
+        <Key
+            android:codes="50001"
+            android:iconPreview="@drawable/sym_keyboard_feedback_delete"
+            android:isRepeatable="true"
+            android:keyEdgeFlags="right"
+            android:keyIcon="@drawable/sym_keyboard_delete"
+            android:keyWidth="15%p" />
+    </Row>
+    <Row android:rowEdgeFlags="bottom">
+        <Key
+            android:codes="50002"
+            android:keyEdgeFlags="left"
+            android:keyLabel="@string/password_keyboard_label_symbol_key"
+            android:keyWidth="20%p" />
+        <Key android:codes="44" android:iconPreview="@drawable/comma" android:keyIcon="@drawable/comma" />
+        <Key android:codes="95" android:iconPreview="@drawable/underscore" android:keyIcon="@drawable/underscore" />
+        <Key
+            android:codes="32"
+            android:iconPreview="@drawable/sym_keyboard_feedback_space"
+            android:keyIcon="@drawable/sym_keyboard_space"
+            android:keyWidth="20%p" />
+        <Key android:codes="61" android:iconPreview="@drawable/equal" android:keyIcon="@drawable/equal" />
+        <Key
+            android:codes="46" android:iconPreview="@drawable/period" android:keyIcon="@drawable/period"
+            android:keyWidth="10%p" />
+        <Key
+            android:codes="10"
+            android:iconPreview="@drawable/sym_keyboard_feedback_ok"
+            android:keyEdgeFlags="right"
+            android:keyIcon="@drawable/sym_keyboard_ok"
+            android:keyWidth="20%p" />
+    </Row>
+
+</Keyboard>

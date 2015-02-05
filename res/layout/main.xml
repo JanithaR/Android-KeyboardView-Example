@@ -53,7 +53,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:visibility="gone"
-        android:keyBackground="@android:drawable/btn_default_small" >
+        style="@style/keyboard_1_style" >
     </it.anddev.tutorial.CustomKeyboardView>
 
     

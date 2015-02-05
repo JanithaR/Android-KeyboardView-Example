@@ -18,24 +18,15 @@ package it.anddev.tutorial;
 import android.app.Activity;
 import android.content.Context;
 import android.inputmethodservice.Keyboard;
-import android.inputmethodservice.KeyboardView;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.ActionMode;
 import android.view.ActionMode.Callback;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.View.OnFocusChangeListener;
-import android.view.WindowManager;
-import android.view.WindowManager.LayoutParams;
-import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.view.animation.Animation.AnimationListener;
-import android.view.animation.TranslateAnimation;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ToggleButton;
@@ -44,7 +35,9 @@ public class KeyboardWidgetTutorialActivity extends Activity {
 
 	private CustomKeyboardView mKeyboardView;
 	private EditText mTargetView;
-	private Keyboard mKeyboard;
+	private Keyboard capitalKeyboard;
+	private Keyboard simpleKeyboard;
+	private Keyboard numericKeyboard;
 	private ToggleButton mToggleButton;
 
 	@Override
@@ -52,7 +45,10 @@ public class KeyboardWidgetTutorialActivity extends Activity {
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.main);
-		mKeyboard = new Keyboard(this, R.xml.keyboard_alphabet_capital);
+		capitalKeyboard = new Keyboard(this, R.xml.kbd_qwerty_shifted);
+		simpleKeyboard = new Keyboard(this, R.xml.kbd_qwerty);
+		numericKeyboard = new Keyboard(this, R.xml.kbd_numeric);
+		
 		mTargetView = (EditText) findViewById(R.id.target);
 		mTargetView.setOnClickListener(new OnClickListener() {
 			
@@ -71,7 +67,7 @@ public class KeyboardWidgetTutorialActivity extends Activity {
 		});
 
 		mKeyboardView = (CustomKeyboardView) findViewById(R.id.keyboard_view);
-		mKeyboardView.setKeyboard(mKeyboard);
+		mKeyboardView.setKeyboard(capitalKeyboard);
 		mKeyboardView
 				.setOnKeyboardActionListener(new BasicOnKeyboardActionListener(
 						this));
@@ -122,6 +118,7 @@ public class KeyboardWidgetTutorialActivity extends Activity {
 		});
 	}
 	
+	private boolean _isShifted = true;
 	private boolean _customShown;
 
 	/***
@@ -149,4 +146,25 @@ public class KeyboardWidgetTutorialActivity extends Activity {
 //		}
 	}
 	
+	public void shiftKeyboard() {
+		_isShifted = !_isShifted;
+		
+		if (_isShifted) {
+			mKeyboardView.setKeyboard(capitalKeyboard);
+		} else {
+			mKeyboardView.setKeyboard(simpleKeyboard);
+		}
+	}
+	
+	private boolean _isAlphabetic = true;
+
+	public void toggleKeyborad() {
+		_isAlphabetic = !_isAlphabetic;
+		
+		if (_isAlphabetic) {
+			mKeyboardView.setKeyboard(capitalKeyboard);
+		} else {
+			mKeyboardView.setKeyboard(numericKeyboard);
+		}
+	}
 }

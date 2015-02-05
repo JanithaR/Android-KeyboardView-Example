@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+**
+** Copyright 2008, The Android Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+
+<Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
+    android:keyHeight="@dimen/password_keyboard_key_height_alpha"
+    android:keyWidth="10%p"
+    android:verticalGap="@dimen/password_keyboard_verticalGap" >
+
+    <Row android:rowEdgeFlags="top" >
+        <Key
+            android:keyEdgeFlags="left"
+            android:keyIcon="@drawable/simple_q" android:iconPreview="@drawable/simple_q" android:codes="113" />
+        <Key android:keyIcon="@drawable/simple_w" android:iconPreview="@drawable/simple_w" android:codes="119" />
+        <Key android:keyIcon="@drawable/simple_e" android:iconPreview="@drawable/simple_e" android:codes="101" />
+        <Key android:keyIcon="@drawable/simple_r" android:iconPreview="@drawable/simple_r" android:codes="114" />
+        <Key android:keyIcon="@drawable/simple_t" android:iconPreview="@drawable/simple_t" android:codes="116" />
+        <Key android:keyIcon="@drawable/simple_y" android:iconPreview="@drawable/simple_y" android:codes="121" />
+        <Key android:keyIcon="@drawable/simple_u" android:iconPreview="@drawable/simple_u" android:codes="117" />
+        <Key android:keyIcon="@drawable/simple_i" android:iconPreview="@drawable/simple_i" android:codes="105" />
+        <Key android:keyIcon="@drawable/simple_o" android:iconPreview="@drawable/simple_o" android:codes="111" />
+        <Key
+            android:keyEdgeFlags="right"
+            android:keyIcon="@drawable/simple_p" android:iconPreview="@drawable/simple_p" android:codes="112" />
+    </Row>
+    <Row>
+        <Key
+            android:keyEdgeFlags="left"
+            android:keyIcon="@drawable/simple_a" android:iconPreview="@drawable/simple_a" android:codes="97"
+            android:horizontalGap="5%p" />
+        <Key android:keyIcon="@drawable/simple_s" android:iconPreview="@drawable/simple_s" android:codes="115" />
+        <Key android:keyIcon="@drawable/simple_d" android:iconPreview="@drawable/simple_d" android:codes="100" />
+        <Key android:keyIcon="@drawable/simple_f" android:iconPreview="@drawable/simple_f" android:codes="102" />
+        <Key android:keyIcon="@drawable/simple_g" android:iconPreview="@drawable/simple_g" android:codes="103" />
+        <Key android:keyIcon="@drawable/simple_h" android:iconPreview="@drawable/simple_h" android:codes="104" />
+        <Key android:keyIcon="@drawable/simple_j" android:iconPreview="@drawable/simple_j" android:codes="106" />
+        <Key android:keyIcon="@drawable/simple_k" android:iconPreview="@drawable/simple_k" android:codes="107" />
+        <Key
+            android:keyEdgeFlags="right"
+            android:keyIcon="@drawable/simple_l" android:iconPreview="@drawable/simple_l" android:codes="108" />
+    </Row>
+    <Row>
+        <Key
+            android:codes="-1"
+            android:iconPreview="@drawable/sym_keyboard_feedback_shift"
+            android:isModifier="true"
+            android:isSticky="true"
+            android:keyEdgeFlags="left"
+            android:keyIcon="@drawable/sym_keyboard_shift"
+            android:keyWidth="15%p" />
+        <Key android:keyIcon="@drawable/simple_z" android:iconPreview="@drawable/simple_z" android:codes="122" />
+        <Key android:keyIcon="@drawable/simple_x" android:iconPreview="@drawable/simple_x" android:codes="120" />
+        <Key android:keyIcon="@drawable/simple_c" android:iconPreview="@drawable/simple_c" android:codes="99" />
+        <Key android:keyIcon="@drawable/simple_v" android:iconPreview="@drawable/simple_v" android:codes="118" />
+        <Key android:keyIcon="@drawable/simple_b" android:iconPreview="@drawable/simple_b" android:codes="98" />
+        <Key android:keyIcon="@drawable/simple_n" android:iconPreview="@drawable/simple_n" android:codes="110" />
+        <Key android:keyIcon="@drawable/simple_m" android:iconPreview="@drawable/simple_m" android:codes="109" />
+        <Key
+            android:codes="50001"
+            android:iconPreview="@drawable/sym_keyboard_feedback_delete"
+            android:isRepeatable="true"
+            android:keyEdgeFlags="right"
+            android:keyIcon="@drawable/sym_keyboard_delete"
+            android:keyWidth="15%p" />
+    </Row>
+    <Row android:rowEdgeFlags="bottom">
+        <Key
+            android:codes="50002"
+            android:keyEdgeFlags="left"
+            android:keyLabel="@string/password_keyboard_label_symbol_key"
+            android:keyWidth="20%p" />
+        <Key android:codes="44" android:iconPreview="@drawable/comma" android:keyIcon="@drawable/comma" />
+        <Key android:codes="95" android:iconPreview="@drawable/underscore" android:keyIcon="@drawable/underscore" />
+        <Key
+            android:codes="32"
+            android:iconPreview="@drawable/sym_keyboard_feedback_space"
+            android:keyIcon="@drawable/sym_keyboard_space"
+            android:keyWidth="20%p" />
+        <Key android:codes="61" android:iconPreview="@drawable/equal" android:keyIcon="@drawable/equal" />
+        <Key
+            android:codes="46" android:iconPreview="@drawable/period" android:keyIcon="@drawable/period"
+            android:keyWidth="10%p" />
+        <Key
+            android:codes="10"
+            android:iconPreview="@drawable/sym_keyboard_feedback_ok"
+            android:keyEdgeFlags="right"
+            android:keyIcon="@drawable/sym_keyboard_ok"
+            android:keyWidth="20%p" />
+    </Row>
+
+</Keyboard>

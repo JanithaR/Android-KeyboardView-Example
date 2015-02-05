@@ -2,4 +2,5 @@
 <resources>
     <string name="hello">Hello World, KeyboardWidgetTutorialActivity!</string>
     <string name="app_name">KeyboardWidgetTutorial</string>
+    <string name="password_keyboard_label_symbol_key" msgid="992280756256536042">"?123"</string>
 </resources>

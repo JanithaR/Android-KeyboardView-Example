@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Default horizontal gap between keys in the password keyboard (used by keyguard) -->
+    <dimen name="password_keyboard_horizontalGap">3dip</dimen>
+    
+    <!-- Default vertical gap between keys in the password keyboard (used by keyguard) -->
+    <dimen name="password_keyboard_verticalGap">6dip</dimen>
+    
+    <!-- Default height of a key in the password keyboard for alpha (used by keyguard) -->
+    <dimen name="password_keyboard_key_height_alpha">56dip</dimen>
+    
+    <!-- Default height of a key in the password keyboard for numeric (used by keyguard) -->
+    <dimen name="password_keyboard_key_height_numeric">56dip</dimen>
+</resources>
