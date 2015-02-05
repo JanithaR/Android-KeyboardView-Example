@@ -58,12 +58,12 @@
     <Row>
         <Key
             android:codes="-1"
-            android:iconPreview="@drawable/sym_keyboard_feedback_shift"
             android:isModifier="true"
             android:isSticky="true"
             android:keyEdgeFlags="left"
-            android:keyIcon="@drawable/sym_keyboard_shift"
-            android:keyWidth="15%p" />
+            android:keyWidth="15%p"
+            android:iconPreview="@drawable/shift"
+            android:keyIcon="@drawable/shift" />
         <Key android:keyIcon="@drawable/simple_z" android:iconPreview="@drawable/simple_z" android:codes="122" />
         <Key android:keyIcon="@drawable/simple_x" android:iconPreview="@drawable/simple_x" android:codes="120" />
         <Key android:keyIcon="@drawable/simple_c" android:iconPreview="@drawable/simple_c" android:codes="99" />
@@ -73,17 +73,16 @@
         <Key android:keyIcon="@drawable/simple_m" android:iconPreview="@drawable/simple_m" android:codes="109" />
         <Key
             android:codes="50001"
-            android:iconPreview="@drawable/sym_keyboard_feedback_delete"
             android:isRepeatable="true"
             android:keyEdgeFlags="right"
-            android:keyIcon="@drawable/sym_keyboard_delete"
-            android:keyWidth="15%p" />
+            android:keyWidth="15%p"
+            android:iconPreview="@drawable/back" android:keyIcon="@drawable/back" />
     </Row>
     <Row android:rowEdgeFlags="bottom">
         <Key
             android:codes="50002"
             android:keyEdgeFlags="left"
-            android:keyLabel="@string/password_keyboard_label_symbol_key"
+            android:keyIcon="@drawable/numaric" android:iconPreview="@drawable/numaric"
             android:keyWidth="20%p" />
         <Key android:codes="44" android:iconPreview="@drawable/comma" android:keyIcon="@drawable/comma" />
         <Key android:codes="95" android:iconPreview="@drawable/underscore" android:keyIcon="@drawable/underscore" />

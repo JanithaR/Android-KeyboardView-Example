@@ -87,17 +87,16 @@
    		 <Key android:codes="63" android:iconPreview="@drawable/question" android:keyIcon="@drawable/question" />
    		 <Key
             android:codes="50001"
-            android:iconPreview="@drawable/sym_keyboard_feedback_delete"
             android:isRepeatable="true"
             android:keyEdgeFlags="right"
-            android:keyIcon="@drawable/sym_keyboard_delete"
-            android:keyWidth="15%p" />
+            android:keyWidth="15%p"
+            android:iconPreview="@drawable/back" android:keyIcon="@drawable/back" />
     </Row>
     <Row android:rowEdgeFlags="bottom" >
         <Key
             android:codes="50002"
             android:keyEdgeFlags="left"
-            android:keyLabel="@string/password_keyboard_label_symbol_key"
+            android:iconPreview="@drawable/abc" android:keyIcon="@drawable/abc"
             android:keyWidth="20%p" />
         <Key android:codes="44" android:iconPreview="@drawable/comma" android:keyIcon="@drawable/comma" />
         <Key android:codes="95" android:iconPreview="@drawable/underscore" android:keyIcon="@drawable/underscore" />
